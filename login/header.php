@@ -8,41 +8,26 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="header.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-        <a href="#">
-        <img src="logo.png" alt="logo">
-        </a>
-        <ul>
-        <li> <a href="#">Home</a></li>
-        <li> <a href="#">Portfolio</a></li>
-        <li> <a href="#">About</a></li>
-        <li> <a href="#">Contact</a></li>
-        </ul>
-        <div>
-            <?php  
-                if(isset($_SESSION['userId'])){
-                   echo ' <form action="includes/logout.inc.php" method="post">
-                   <button type="submit" name="logout-submit">Logout</button>
-               </form>' ;
-                }
-                else{
-                    echo ' <form action="includes/login.inc.php" method="post">
+           
+
+                <div class="login-page">
+                <div class="form">
+                  
+                  <form class="login-form" action="includes/login.inc.php" method="post">
                     <input type="text" name="mailuid"  placeholder="Username/email">
                     <input type="password" name="pwd"  placeholder="Password">
                     <button type="submit" name="login-submit">Login</button>
-                </form>
-                <a href="signup.php">Signup</a>';
-
-                }
-            ?>
+                    <p class="message">Not registered? <a href="signup.php">Create an account</a></p>
+                  </form>
+                </div>
+              </div>
+            
+           <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+           <script src="header.js"></script> -->
            
-           
-        </div>
-        </nav>
-    </header>
 </body>
 </html>

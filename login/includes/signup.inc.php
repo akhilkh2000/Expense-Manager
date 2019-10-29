@@ -15,7 +15,7 @@ if (empty($passwordRepeat)||empty($username)||empty($email)||empty($passsword)) 
 }
 else if(!filter_var($email, FILTER_VALIDATE_EMAIL)&&!preg_match("/^[a-zA-Z0-9]*$/", $username)){
 
-    header("Location: ../signup.php?error=Iivalidmailuid");
+    header("Location: ../signup.php?error=Invalidmailuid");
     exit();
 }
 else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -59,7 +59,7 @@ else{
                 $hashedPwd=password_hash($passsword, PASSWORD_DEFAULT);
                 mysqli_stmt_bind_param($stmt,"sss",$username,$email,$hashedPwd);
                 mysqli_stmt_execute($stmt);
-                header("Location: ../signup.php?signup=success");
+                header("Location: ../signup.php?error=success");
                 exit();
             }
         }
@@ -70,6 +70,6 @@ else{
  mysqli_close($conn);
 }
 else{
-    header("Location: ../signup.php?");
+    header("Location: ../index.php");
     exit();
 }

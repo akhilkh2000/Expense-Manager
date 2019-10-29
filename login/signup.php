@@ -1,20 +1,60 @@
-<?php
-require "header.php";
-?>
-<main>
-    <h1>Signup</h1>
-    <?php 
-        
-     ?>
-    <form action="includes/signup.inc.php" method="post">
-        <input type="text" name="uid" placeholder="Username">
-        <input type="email" name="mail" placeholder="Email">
-        <input type="password" name="pwd" placeholder="Password">
-        <input type="password" name="pwd-repeat" placeholder="Repeat password">
-        <button type="submit" name="signup-submit">Signup</button>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Signup</title>
+     <link rel="stylesheet" type="text/css" href="signup.css">
+ </head>
+ <body>
+ <div class="login-page">
+ <div class="form">
+<form class="register-form"  action="includes/signup.inc.php" method="post">
+                <?php
+                    if(isset($_GET['error'])){
+                        if($_GET['error']=="emptyfields"){
+                            echo'<p style="color:red;"> Fill in all fields!</p><br>';
+                        }
+                        else if($_GET['error']=="passwordcheck"){
+                            echo'<p style="color:red;"> Passwords don\'t match!</p><br>';
+                        }
+                        else if($_GET['error']=="usertaken"){
+                            echo'<p style="color:red;"> User Exists ,Change email or username!</p><br>';
+                        }
+                        else if($_GET['error']=="sqlerror"){
+                            echo'<p style="color:red;">SQL ERROR!</p><br>';
+                        }
+                        else if($_GET['error']=="Invalidmailuid"){
+                            echo'<p style="color:red;">Invalid mail and username!</p><br>';
+                        }
+                        else  if($_GET['error']=="invalidmail"){
+                            echo'<p style="color:red;">Invalid mail!</p><br>';
+                        }
+                        else  if($_GET['error']=="invaliduid"){
+                            echo'<p style="color:red;">Invalid username!</p><br>';
+                        }
+                        else  if($_GET['error']=="sqlerror"){
+                            echo'<p style="color:red;">SQL ERROR!</p><br>';
+                        }
+                        else if($_GET['error']=="success"){
+                            echo '<p style="color:green";>Your\'e good to go Money lover!</p><br>';
+                        }
+                    }
+                     ?>
+                    <input type="text" name="uid" placeholder="Username">
+                    <input type="email" name="mail" placeholder="Email">
+                    <input type="password" name="pwd" placeholder="Password">
+                    <input type="password" name="pwd-repeat" placeholder="Repeat password">
+                    <button type="submit" name="signup-submit">Signup</button>
+                    <p class="message">Already registered? <a href="index.php">Sign In</a></p>
+                  </form>
+ </div>
+ </div>
 
-
-    </form>
+ </body>
+ </html>
+    
 <!-- <?php
     require "footer.php";
 ?> -->
