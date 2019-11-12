@@ -1,10 +1,11 @@
- <?php
+<?php
 session_start();
 
  if(!isset($_SESSION['userId'])){
      header('location: ../login/includes/logout.inc.php');
  }
  else{
+     require'D:\Xampp\htdocs\Expense-Manager\login\includes\sidebar.php';
     echo '<p>you are logged in!</p>';
     echo 'User Id: '. $_SESSION['userId'];
  }
