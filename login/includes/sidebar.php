@@ -6,7 +6,7 @@ require'dbh.inc.php' ;
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <div class="profile-sidebar">
            <!--  <div class="profile-userpic">
-                <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+                <img src="http://placehold.it/50/4CAF50/fff" class="img-responsive" alt="">
             </div> -->
             <div class="profile-usertitle">
                 
@@ -63,7 +63,6 @@ require'dbh.inc.php' ;
             
             <li><a href="user-profile.php"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
              <li><a href="change-password.php"><em class="fa fa-clone">&nbsp;</em> Change Password</a></li>
-<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-
+<li><a href="includes/logout.inc.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
         </ul>
     </div>

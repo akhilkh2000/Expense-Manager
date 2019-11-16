@@ -32,13 +32,29 @@ $newpassword=($_POST['newpassword']);
                     if($pwdCheck==false){
                         $msg="Your current password is wrong.";
                         #header("Location: ../dashboard.php?error=wrongpwd");
-                        exit();
+                        // exit();
                     }
                     else if($pwdCheck==true){
-                        
-                        $hashedPwd=password_hash($newpasssword, PASSWORD_DEFAULT);
-                        $ret=mysqli_query($conn,"update users set pwdUsers='$hashedPwd' where uidUsers='$userid'");
-                        $msg= "Your password successully changed"; 
+						$sql="UPDATE users SET pwdUsers=? WHERE uidUsers=?";
+            				$stmt=mysqli_stmt_init($conn);
+            				if(!mysqli_stmt_prepare($stmt,$sql)){
+               						 header("Location: D:\Xampp\htdocs\Expense-Manager\login\change-password.php?error=sqlerror");
+									exit();
+           							 }
+            				else{
+									$hashed=password_hash(strval($newpassword), PASSWORD_DEFAULT);
+									mysqli_stmt_bind_param($stmt,"ss",$hashed,$userid);
+									mysqli_stmt_execute($stmt);
+									$msg='SUCCESS';
+									// header("Location: ../signup.php?error=success");
+									// exit();
+
+								}
+
+                        // header("Location: D:\Xampp\htdocs\Expense-Manager\login\change-password.php");
+                        // $hashed = password_hash($newpasssword, PASSWORD_DEFAULT);
+                        // $ret=mysqli_query($conn,"update users set pwdUsers='$hashed' where uidUsers='$userid'");
+                        // $msg= "Your password successully changed"; 
                     }
                 }}
             }

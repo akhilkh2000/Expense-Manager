@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
      $info=$_POST['info'];
      $costitem=$_POST['cost'];
      $category=$_POST['category'];
-    $query=mysqli_query($conn, "insert into expenses(uidUsers,transDate,transType,transAmount,transCategory,transInfo) value('$userid','$datecredit','C','$costitem','$category','$info')");
+    $query=mysqli_query($conn, "insert into expenses(idUsers,transDate,transType,transAmount,transCategory,transInfo) value('$userid','$datecredit','C','$costitem','$category','$info')");
 if($query){
 echo "<script>alert('Credit has been added');</script>";
 // echo "<script>window.location.href='manage-expense.php'</script>";
@@ -43,8 +43,8 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 	<![endif]-->
 </head>
 <body>
-	<!-- <?php include_once('includes/header.php');?>
-	<?php include_once('includes/sidebar.php');?> -->
+	<?php include_once('includes/header.php');?>
+	<?php include_once('includes/sidebar.php');?>
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -89,10 +89,10 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                 <div class="form-group">
 									<label>Category</label>
                                     <select class="form-control" name="category" required>
-                                        <option value="bills">Income</option>
-                                        <option value="education">Award</option>
-                                        <option value="entertainment">Gifts</option>
-                                        <option value="food">Other</option>
+                                        <option value="income">Income</option>
+                                        <option value="award">Award</option>
+                                        <option value="gift">Gifts</option>
+                                        <option value="other">Other</option>
                                     </select>
 								</div>
 																
@@ -112,7 +112,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 		</div><!-- /.row -->
 	</div><!--/.main-->
 	
-<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>

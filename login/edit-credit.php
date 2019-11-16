@@ -6,23 +6,44 @@ if(!isset($_SESSION['userId'])){
     header('location: ../login/includes/logout.inc.php');
 } else{
 
+    if(isset($_GET['editid'])) {
+        $dateexpense = $_GET['transDate'];
+        $info = $_GET['transInfo'];
+        $type = $_GET['transType'];
+        $costitem = $_GET['transAmount'];
+        $category = strval($_GET['transCategory']);
+    } else {
+        echo "<script>alert('Something went wrong. Please try again');</script>";
+    }
+
 if(isset($_POST['submit']))
   {
-  	$userid=$_SESSION['userId'];
-    $dateexpense=$_POST['dateexpense'];
-     $info=$_POST['info'];
-     $costitem=$_POST['cost'];
-     $category=$_POST['category'];
-    $query=mysqli_query($conn, "insert into expenses(idUsers,transDate,transType,transAmount,transCategory,transInfo) value('$userid','$dateexpense','D','$costitem','$category','$info')");
+      $userid=intval($_SESSION['userId']);
+      $transId = intval($_GET['editid']);
+      $dateexpense=$_POST['dateexpense'];
+      $info=$_POST['info'];
+      $costitem=$_POST['cost'];
+      $category=strval($_POST['category']);
+
+     $postvar = json_encode($_POST);
+     echo "<script>console.log($postvar);</script>";
+    $query=mysqli_query($conn, "UPDATE expenses
+         SET transDate = '$dateexpense',
+             idUsers = '$userid',
+             transInfo = '$info',
+             transType = 'D',
+             transAmount = '$costitem',
+             transCategory = '$category'
+         WHERE transId = '$transId'");
 if($query){
-echo "<script>alert('Expense has been added');</script>";
-// echo "<script>window.location.href='manage-expense.php'</script>";
+echo "<script>alert('Transaction has been updated');</script>";
+echo "<script>window.location.href='manage-expense.php'</script>";
 } else {
 echo "<script>alert('Something went wrong. Please try again');</script>";
 
 }
   
-}
+}}
   ?>
 <!DOCTYPE html>
 <html>
@@ -75,30 +96,30 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 							<form role="form" method="post" action="">
 								<div class="form-group">
 									<label>Date of Expense</label>
-									<input class="form-control" type="date" value="" name="dateexpense" required="true">
+									<input class="form-control" type="date" value="<?php echo $dateexpense;?>" name="dateexpense" required="true">
 								</div>
 								<div class="form-group">
 									<label>Description</label>
-									<input type="text" class="form-control" name="info" value="" >
+									<input type="text" class="form-control" name="info" value="<?php echo $info;?>" >
 								</div>
 								
 								<div class="form-group">
 									<label>Cost of Item</label>
-									<input class="form-control" type="text" value="" required="true" name="cost">
+									<input class="form-control" type="text" value="<?php echo $costitem;?>" required="true" name="cost">
                                 </div>
+                                
                                 <div class="form-group">
 									<label>Category</label>
                                     <select class="form-control" name="category" required>
-                                        <option value="bills">Bills and Utilities</option>
-                                        <option value="education">Education</option>
-                                        <option value="entertainment">Entertainment</option>
-                                        <option value="food">Food and Beverage</option>
-                                        <option value="health">Health and fitness</option>
+                                    <option <?php if($category== 'income'){echo("selected");}?> value='income'>Income</option>
+                                    <option <?php if($category== 'award'){echo("selected");}?> value='award'>Awards</option>
+                                    <option <?php if($category== 'gift'){echo("selected");}?> value='gift'>Gifts</option>
+                                    <option <?php if($category== 'other'){echo("selected");}?> value='other'>Other</option>
                                     </select>
 								</div>
 																
 								<div class="form-group has-success">
-									<button type="submit" class="btn btn-primary" name="submit">Add</button>
+									<button type="submit" class="btn btn-primary" name="submit">Update</button>
 								</div>
 								
 								
@@ -124,4 +145,3 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 	
 </body>
 </html>
-<?php }  ?>
