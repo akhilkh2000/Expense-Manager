@@ -40,22 +40,6 @@ require'dbh.inc.php' ;
 
             </li>
            
-  <li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-                <em class="fa fa-navicon">&nbsp;</em>Expense Report <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-                </a>
-                <ul class="children collapse" id="sub-item-2">
-                    <li><a class="" href="expense-datewise-reports.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Daywise Expenses
-                    </a></li>
-                    <li><a class="" href="expense-monthwise-reports.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Monthwise Expenses
-                    </a></li>
-                    <li><a class="" href="expense-yearwise-reports.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Yearwise Expenses
-                    </a></li>
-                    
-                </ul>
-            </li>
 
 
 
