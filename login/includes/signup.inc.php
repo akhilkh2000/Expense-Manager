@@ -8,8 +8,10 @@ $username=$_POST['uid'];
 $email=$_POST['mail'];
 $passsword=$_POST['pwd'];
 $passwordRepeat=$_POST['pwd-repeat'];
+$startBalance=$_POST['startBalance'];
+$budget=$_POST['budget'];
 
-if (empty($passwordRepeat)||empty($username)||empty($email)||empty($passsword)) {
+if (empty($passwordRepeat)||empty($username)||empty($email)||empty($passsword)||empty($budget)||empty($startBalance)) {
     header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
     exit();
 }
@@ -49,7 +51,7 @@ else{
         exit();
         }
         else{
-            $sql="INSERT INTO users (uidUsers,emailUsers,pwdUsers) VALUES (?,?,?)";
+            $sql="INSERT INTO users (uidUsers,emailUsers,pwdUsers,startBalance,budget) VALUES (?,?,?,$startBalance,$budget)";
             $stmt=mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
                 header("Location: ../signup.php?error=sqlerror");

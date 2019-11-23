@@ -18,6 +18,22 @@ session_start();
                 <div class="form">
                   
                   <form class="login-form" action="includes/login.inc.php" method="post">
+                  <?php
+                    if(isset($_GET['error'])){
+                        if($_GET['error']=="emptyfields"){
+                            echo'<p style="color:red;"> Fill in all fields!</p><br>';
+                        }
+                        else if($_GET['error']=="sqlerror"){
+                            echo'<p style="color:red;">SQL ERROR!</p><br>';
+                        }
+                        else  if($_GET['error']=="wrongpwd"){
+                            echo'<p style="color:red;">Incorrect Password!</p><br>';
+                        }
+                        else  if($_GET['error']=="nouser"){
+                            echo'<p style="color:red;">Invalid username!</p><br>';
+                        }
+                    }
+                     ?>
                     <input type="text" name="mailuid"  placeholder="Username/email">
                     <input type="password" name="pwd"  placeholder="Password">
                     <button type="submit" name="login-submit">Login</button>

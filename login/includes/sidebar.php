@@ -45,7 +45,7 @@ require'dbh.inc.php' ;
 
 
             
-            <li><a href="user-profile.php"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
+            <li><a href="profile.php"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
              <li><a href="change-password.php"><em class="fa fa-clone">&nbsp;</em> Change Password</a></li>
 <li><a href="includes/logout.inc.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
         </ul>
