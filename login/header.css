@@ -8,7 +8,8 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
+  background: linear-gradient(0deg, #0F1623 -3.36%, rgb(41, 100, 82) 66.71%), url(notes.png);
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -30,7 +31,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: rgb(48, 133, 51);
   width: 100%;
   border: 0;
   padding: 15px;
@@ -54,11 +55,15 @@
 }
 
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  /* background: #76b852; /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(right, #76b852, #8DC26F);
   background: -moz-linear-gradient(right, #76b852, #8DC26F);
   background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);  */
+  background: linear-gradient(0deg, #0F1623 -3.36%, rgb(41, 100, 82) 66.71%), url(notes.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: multiply, normal;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      

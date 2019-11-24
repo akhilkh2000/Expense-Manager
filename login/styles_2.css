@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  background: linear-gradient(0deg, #0F1623 -3.36%, rgb(41, 100, 82) 66.71%);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#content{
+  font-size: xx-large;
+  text-align: center;
+  padding-top: 3%;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 23px rgba(0,0,0,0.1);
+}
+
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+header {
+  padding: 15px 30px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #000000 0%, rgba(11, 70, 45, 0) 100%);
+}
+header .brand {
+  display: inline-flex;
+  align-items: center;
+  width: 55%;
+
+}
+header .brand img {
+  max-height: 80px;
+  max-width: 100%;
+}
+
+nav {
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  display: none;
+}
+nav a {
+  color: #ffffff;
+  opacity: 0.7;
+  line-height: 70px;
+  height: 100%;
+  display: inline-block;
+  padding: 0 25px;
+  font-size: 0.9rem;
+}
+nav a.active {
+  opacity: 1;
+}
+nav a:hover {
+  opacity: 1;
+  color:rgb(160, 245, 69);
+}
+
+.container {
+  padding: 0 30px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.container.hero {
+  padding: 3rem 0;
+  color: #ffffff;
+  min-height: 125vh;
+  background: linear-gradient(0deg, #0F1623 -3.36%, rgb(41, 100, 82) 66.71%), url(notes.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: multiply, normal;
+  z-index: initial;
+  text-shadow: 0 2px 15px #000000;
+}
+.container.hero,
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+.container.hero .content {
+  position: relative;
+  z-index: 1;
+  line-height: 1em;
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem;
+}
+
+ 
+
+.events {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.card {
+  color: #ffffff;
+  border-radius: 22px;
+  padding: 40px 30px;
+  background: rgb(13, 34, 26);
+}
+.card ul, ol {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: large;
+}
+
+.event {
+  margin: 70px 0;
+  border-radius: 22px;
+  overflow: hidden;
+  text-align: left;
+  color: #ffffff;
+}
+.event .card {
+  border-radius: 0;
+  padding: 40px 30px;
+  
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-blend-mode: multiply, normal;
+  box-shadow: 0px 12px 38px rgba(255, 255, 255, 0.25);
+}
+.event:first-of-type {
+  margin-top: 0;
+}
+.event:last-of-type {
+  margin-bottom: 0;
+}
+.event h2 {
+  line-height: 1em;
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem;
+  color: #ffffff;
+}
+
+.event .description {
+  line-height: 1.8;
+  max-width: 100%;
+  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+ 
+
+.contact {
+  text-shadow: 0 2px 15px #000000;
+  padding: 5rem 0;
+  color: #ffffff;
+}
+.contact h2 {
+  margin: 0;
+  font-size: 3rem;
+}
+ 
+
+
+@media screen and (min-width: 700px) {
+  .container {
+    padding: 0 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .container.hero {
+    min-height: 100vh;
+  }
+
+  .event .card {
+    padding: 50px 65px;
+  }
+  .event .timing {
+    float: right;
+    margin-bottom: 0;
+  }
+  .event .description {
+    max-width: 75%;
+  }
+
+  .contact {
+    padding: 5rem 60px;
+  }
+
+@media screen and (min-width: 1000px) {
+
+  header {
+    padding: 0 60px;
+    height: 70px;
+    flex-wrap: nowrap;
+  }
+  header .brand {
+    height: 100%;
+    width: auto;
+  }
+  header .brand img {
+    height: calc(100% - 20px);
+    max-width: none;
+  }
+
+  nav {
+    margin: 0;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    margin-left: auto;
+    text-align: right;
+    height: 100%;
+  }

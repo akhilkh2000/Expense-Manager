@@ -73,7 +73,10 @@ session_start();
                         Starting Balance: <?php echo $userBalance; ?> <br>
                         Current Balance: <?php echo $userBalance - $userExpenses; ?> <br>
                         Budget: <?php echo $userBudget; ?> <br>
-                        Current Month Expenses: <?php echo $currentExpense; ?>
+                        Current Month Expenses: <?php if($currentExpense>$userBudget)
+                                                            echo'<p style="color:red;">'. $currentExpense.'</p>';
+                                                      else
+                                                            echo $currentExpense; ?>
                     </div>
                 </div>
             </div>
@@ -91,8 +94,8 @@ session_start();
                                 <div class="form-group">
                                     <label>Time Period</label>
                                     <select class="form-control" name="period" required>
-                                        <option value="week" selected>Past 7 days</option>
-                                        <option value="month">Past 30 Days</option>
+                                        <option value="week">Past 7 days</option>
+                                        <option value="month" <?php if(strval($_POST['period'])=="month") echo'selected';?>>Past 30 Days</option>
                                     </select>
                                 </div>
                                                                 
@@ -200,6 +203,11 @@ session_start();
             $billsAmount = 0;
             $foodAmount = 0;
             $healthAmount = 0;
+            $personalAmount=0;
+            $clothingAmount=0;
+            $footwearAmount=0;
+            $transportationAmount=0;
+            $investmentAmount=0;
 
             while($row=mysqli_fetch_array($debitQuery)) {
                 switch ($row['transCategory']) {
@@ -216,14 +224,30 @@ session_start();
                         $foodAmount += $row['transAmount'];
                         break;
                     case 'health':
-                        $healthAmount += $row['transAmount'];            
+                        $healthAmount += $row['transAmount']; 
+                    break;   
+                    case 'personalcare':
+                        $personalAmount+=$row['transAmount'];
+                    break;
+                    case 'clothing':
+                        $clothingAmount+=$row['transAmount'];
+                    break;
+                    case 'footwear':
+                        $footwearAmount+=$row['transAmount'];
+                    break;
+                    case 'transportation':
+                        $transportationAmount+=$row['transAmount']; 
+                    break;
+                    case 'investment':
+                        $investmentAmount+=$row['transAmount'];    
+                    break;
                 }
         }?>
         var debitChart = new CanvasJS.Chart("debitChart", {
             animationEnabled: true,
             title:{
                 text: "Debit ",
-                horizontalAlign: "left"
+                horizontalAlign: "center"
             },
             data: [{
                 type: "doughnut",
@@ -238,6 +262,10 @@ session_start();
                     { y: <?php echo $billsAmount?>, label: "Bills and Utilities" },
                     { y: <?php echo $foodAmount?>, label: "Food and Beverage"},
                     { y: <?php echo $healthAmount?>, label: "Health and fitness"},
+                    { y: <?php echo $clothingAmount?>, label: "Clothing"},
+                    { y: <?php echo $footwearAmount?>, label: "Footwear"},
+                    { y: <?php echo $transportationAmount?>, label: "Transportation"},
+                    { y: <?php echo $investmentAmount?>, label: "Investment"}
                 ]
             }]
         });
@@ -268,8 +296,8 @@ session_start();
         var creditChart = new CanvasJS.Chart("creditChart", {
             animationEnabled: true,
             title:{
-                text: "Credit ",
-                horizontalAlign: "left"
+                text:"Credit",
+                horizontalAlign: "center"
             },
             data: [{
                 type: "doughnut",

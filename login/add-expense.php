@@ -93,7 +93,12 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                         <option value="education">Education</option>
                                         <option value="entertainment">Entertainment</option>
                                         <option value="food">Food and Beverage</option>
-                                        <option value="health">Health and fitness</option>
+										<option value="health">Health and fitness</option>
+										<option value="clothing">Clothing</option>
+										<option value="footwear">Footwear</option>
+										<option value="personalcare">Personal Care</option>
+										<option value="transportation">Transportation</option>
+										<option value="investment">Investment</option>
                                     </select>
 								</div>
 																

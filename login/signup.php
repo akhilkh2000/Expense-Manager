@@ -49,7 +49,7 @@
                     <input type="password" name="pwd" placeholder="Password">
                     <input type="password" name="pwd-repeat" placeholder="Repeat password">
                     <button type="submit" name="signup-submit">Signup</button>
-                    <p class="message">Already registered? <a href="index.php">Sign In</a></p>
+                    <p class="message">Already registered? <a href="header.php">Sign In</a></p>
                   </form>
  </div>
  </div>
