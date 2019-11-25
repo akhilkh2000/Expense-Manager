@@ -320,6 +320,7 @@ session_start();
 
         }
     </script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+    <script src="canvasjs.min.js"></script>
 </body>
 </html>

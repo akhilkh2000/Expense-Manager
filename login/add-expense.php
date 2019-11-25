@@ -99,6 +99,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 										<option value="personalcare">Personal Care</option>
 										<option value="transportation">Transportation</option>
 										<option value="investment">Investment</option>
+										<option value="other">Other</option>
                                     </select>
 								</div>
 																

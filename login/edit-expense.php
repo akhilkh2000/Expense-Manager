@@ -115,7 +115,12 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                                     <option <?php if($category== 'education'){echo("selected");}?> value='education'>Education</option>
                                     <option <?php if($category== 'entertainment'){echo("selected");}?> value='entertainment'>Entertaiment</option>
                                     <option <?php if($category== 'food'){echo("selected");}?> value='food'>Food and Beverage</option>
-                                    <option <?php if($category== 'health'){echo("selected");}?> value='health'>Health <address></address></option>
+									<option <?php if($category== 'health'){echo("selected");}?> value='health'>Health</option>
+									<option <?php if($category== 'clothing'){echo("selected");}?> value='clothing'>Clothing</option>
+									<option <?php if($category== 'footwear'){echo("selected");}?> value='footwear'>Footwear</option>
+									<option <?php if($category== 'transportation'){echo("selected");}?> value='bills'>Transportation</option>
+									<option <?php if($category== 'personalcare'){echo("selected");}?> value='bills'>Personal Care</option>
+									<option <?php if($category== 'investment'){echo("selected");}?> value='bills'>Investment</option>
                                     </select>
 								</div>
 																

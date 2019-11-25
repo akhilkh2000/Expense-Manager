@@ -178,6 +178,9 @@ nav a:hover {
   margin: 0;
   font-size: 3rem;
 }
+.contact>a:hover{
+  color:rgb(160, 245, 69);
+}
  
 
 

@@ -11,6 +11,13 @@ session_start();
     <link rel="stylesheet" type="text/css" href="header.css">
 </head>
 <body>
+<header>
+    <a href="index.php" class="brand">
+      <img src="wallet.png" alt="logo">
+      <div class="pig">
+      </div>
+    </a>
+  </header>
 
            
 

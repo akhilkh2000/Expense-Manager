@@ -25,7 +25,7 @@
 
     <div id="content" class="content">
       <h1>WHERE'S MY MONEY?</h1>
-         <h3> - Expense Manager</h3>
+         <h3> < An Expense Manager ></h3>
     </div>
 
   </section>

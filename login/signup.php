@@ -8,6 +8,13 @@
      <link rel="stylesheet" type="text/css" href="signup.css">
  </head>
  <body>
+ <header>
+    <a href="index.php" class="brand">
+      <img src="wallet.png" alt="logo">
+      <div class="pig">
+      </div>
+    </a>
+  </header>
  <div class="login-page">
  <div class="form">
 <form class="register-form"  action="includes/signup.inc.php" method="post">
@@ -38,7 +45,7 @@
                             echo'<p style="color:red;">SQL ERROR!</p><br>';
                         }
                         else if($_GET['error']=="success"){
-                            echo '<p style="color:green";>Your\'e good to go Money lover!</p><br>';
+                            echo '<p style="color:white";>Your\'e good to go Money lover!</p><br>';
                         }
                     }
                      ?>
