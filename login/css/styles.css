@@ -1465,6 +1465,7 @@ a.todo-list-item:focus {
 
 .table {
 	background: #fff;
+	width: fit-content;
 }
 
 .fixed-table-container {
