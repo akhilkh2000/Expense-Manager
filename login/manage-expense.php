@@ -15,7 +15,6 @@
 				$count = mysqli_fetch_array($rows)["count"];
 				echo $count;
 				$count = (int)$count;
-				$count = 5;
 				// echo '<script>alert("Record successfully deleted ' . $count . '");</script>';
 				echo '<script>alert("Record successfully deleted ");</script>';
 				$changeAutoIncr = mysqli_query($conn, "alter table expenses AUTO_INCREMENT= $count");
