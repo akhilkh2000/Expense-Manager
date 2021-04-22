@@ -14,8 +14,17 @@
 				$rows = mysqli_query($conn, "select COUNT(*) as count from expenses where idUsers ='$userId'");
 				$count = mysqli_fetch_array($rows)["count"];
 				echo $count;
+				$count = (int)$count;
+				$count = 5;
 				// echo '<script>alert("Record successfully deleted ' . $count . '");</script>';
-				$changeAutoIncr = mysqli_query()
+				echo '<script>alert("Record successfully deleted ");</script>';
+				$changeAutoIncr = mysqli_query($conn, "alter table expenses AUTO_INCREMENT= $count");
+				if ($changeAutoIncr) {
+					// echo '<script>alert("changed auto_incr");</script>';
+				} else {
+					$err =  mysqli_error($conn);
+					echo '<script>alert("error' . $err . '");</script>';
+				}
 				echo "<script>window.location.href='manage-expense.php'</script>";
 			} else {
 				echo "<script>alert('Something went wrong. Please try again');</script>";
